@@ -29,8 +29,20 @@ exports.User_Findone=(  req, res ) =>
 {
 
 
-   User.find(req.body).then( user => res.json(' user found' + user)).catch( err =>  res.status(400).json('Error : ' + err));
-
+   User.findOne(req.body).then( user => res.json(' user found' + user)).catch( err =>  res.status(400).json('Error : ' + err));
+   
 
 
 }
+
+
+/* 
+exports.User_FindStudents=(  req, res ) => 
+{
+ 
+
+   User.find(req.body).then( user => res.json(' user found' + user)).catch( err =>  res.status(400).json('Error : ' + err));
+   
+
+
+}*/

@@ -2,6 +2,12 @@ var massege = ' hello world';
 console.log(massege);
 
 const cors = require('cors');
+const corsOptions ={
+
+  origin : '*',
+  credentials :true,
+  optionSuccessStatus:200,
+}
 
 const { MongoClient, HostAddress } = require("mongodb");
 const { default: test } = require("node:test");
@@ -18,6 +24,7 @@ const client = new MongoClient(uri);
 const app = express();
 //app.use(bodyparser.json());
 app.use(express.json());
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 const port = 5000;
 
@@ -35,7 +42,7 @@ app.use('/module', moduleRouter);
 app.use ('/tutorial', tutorialrouter);
 app.use ('/user', userrouter);
 
-app.use(cors());
+
 
 
 /////
